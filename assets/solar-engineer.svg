@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Solar engineering site</title><desc id="desc">A stylised solar installation scene with technical equipment and panels.</desc>
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9e2dc"/><stop offset="1" stop-color="#6ca098"/></linearGradient><pattern id="cells" width="42" height="30" patternUnits="userSpaceOnUse"><rect width="42" height="30" fill="#173f66"/><path d="M0 0h42M0 15h42M14 0v30M28 0v30" stroke="#a8c8d4" stroke-opacity=".6"/></pattern></defs>
+  <rect width="1200" height="760" fill="url(#sky)"/><path d="M0 432C210 361 374 447 566 405c206-44 360 6 634-80v435H0Z" fill="#2a6547"/><g transform="skewY(-8)"><rect x="56" y="280" width="860" height="290" rx="8" fill="url(#cells)" stroke="#e6f2ef" stroke-width="8"/></g><g transform="translate(946 318)"><circle cx="92" cy="75" r="45" fill="#f1c348"/><path d="M56 118h71l22 156H34Z" fill="#0c4236"/><path d="M60 133h64v88H60Z" fill="#eaf3ee"/><path d="M86 170h13v104H86Z" fill="#f1c348"/></g><rect width="1200" height="760" fill="#062f24" fill-opacity=".1"/>
+</svg>

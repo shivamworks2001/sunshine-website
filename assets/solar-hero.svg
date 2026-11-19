@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+  <title id="title">Solar panels in a green landscape</title>
+  <desc id="desc">A stylised renewable-energy landscape with blue solar arrays under a warm sky.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7f1ea"/><stop offset="1" stop-color="#a9cfc5"/></linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#649e72"/><stop offset="1" stop-color="#174d3a"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2d6e83"/><stop offset="1" stop-color="#112e4f"/></linearGradient>
+    <pattern id="cells" width="48" height="34" patternUnits="userSpaceOnUse"><rect width="48" height="34" fill="url(#panel)"/><path d="M0 0h48M0 17h48M16 0v34M32 0v34" stroke="#9cc4d0" stroke-opacity=".58" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1600" height="820" fill="url(#sky)"/>
+  <circle cx="1260" cy="142" r="82" fill="#f5c94d" fill-opacity=".88"/>
+  <path d="M0 330C238 260 385 315 570 345c241 39 396-52 584-39 185 13 304 70 446 23v491H0Z" fill="url(#land)"/>
+  <path d="M0 526c220-88 405-43 608 3 239 54 466-86 662-20 128 43 247 54 330 27v284H0Z" fill="#286144" fill-opacity=".84"/>
+  <g transform="skewY(-9)">
+    <rect x="-60" y="360" width="770" height="300" rx="7" fill="url(#cells)" stroke="#d9edf0" stroke-width="8"/>
+    <rect x="865" y="455" width="780" height="305" rx="7" fill="url(#cells)" stroke="#d9edf0" stroke-width="8"/>
+  </g>
+  <path d="M726 0v820" stroke="#fff" stroke-opacity=".18" stroke-width="2"/>
+  <path d="M752 0v820" stroke="#fff" stroke-opacity=".18" stroke-width="2"/>
+  <rect width="1600" height="820" fill="#092f25" fill-opacity=".11"/>
+</svg>
