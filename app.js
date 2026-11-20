@@ -1,4 +1,18 @@
 const form = document.getElementById('calcForm');
+// Animate only after intersection; content stays visible if motion is unsupported.
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const entranceObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (!isIntersecting) return;
+      target.animate([
+        { transform: 'translateY(24px)' },
+        { transform: 'translateY(0)' }
+      ], { duration: 700, easing: 'cubic-bezier(.2,.7,.2,1)' });
+      observer.unobserve(target);
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(element => entranceObserver.observe(element));
+}
 const result = document.getElementById('calcResult');
 if (form && result) {
   form.addEventListener('submit', (event) => {

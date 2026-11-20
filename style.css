@@ -1,11 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap");
 :root {
+  color-scheme: light;
   --ink: #112c24;
   --green: #0d513e;
   --light: #f4f7f2;
   --yellow: #f6c84c;
   --line: #dce4dc;
   --body: #52635d;
+}
+/* Dark editorial framing inspired by the supplied reference. */
+body .site-header {
+  background: #12201c;
+  border-bottom-color: #34423c;
+}
+body .site-header .brand,
+body .site-header nav a { color: #f5f7f5; }
+body .site-header nav a:hover,
+body .site-header nav a.active { color: #f6d36b; }
+body .site-header .menu { color: #fff; }
+body .hero {
+  background: #12201c;
+  max-width: none;
+  padding-top: 64px;
+}
+body .hero h1 { color: #f5f7f5; letter-spacing: 0; }
+body .hero h1 em { color: #f6d36b; }
+body .hero .lede,
+body .hero .hero-note { color: #d0ddd6; }
+body .hero .eyebrow { color: #d0ddd6; }
+body .hero .text-link,
+body .hero .text-link b { color: #fff; }
+body .hero .button,
+body .site-header > .button {
+  background: #f6d36b;
+  color: #13271f;
+  box-shadow: none;
+}
+body .hero .button:hover,
+body .site-header > .button:hover { background: #ffe59b; }
+body .hero-image { box-shadow: none; border-color: #40534a; }
+body .section-heading .text-link { justify-self: start; }
+body .solution-card { box-shadow: none; border-color: #dce4dc; }
+body .solution-card:hover { box-shadow: 0 18px 40px #15372914; }
+@media (max-width: 900px) {
+  body .site-header nav { background: #12201c; }
+  body .site-header nav a { border-bottom-color: #34423c; }
 }
 
 .mobile-quote {
