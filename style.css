@@ -703,8 +703,8 @@ nav a.active {
   max-width: 270px;
   margin: 0;
 }
-.feature p,
-.dark p {
+.solution-card.feature p,
+.solution-card.dark p {
   color: #e1eee6;
 }
 .solution-card a {
@@ -749,16 +749,16 @@ nav a.active {
 .service-summary-list a:hover {
   color: var(--green);
 }
-.feature a,
-.dark a {
+.solution-card.feature a,
+.solution-card.dark a {
   color: #f9da6a;
 }
 .number {
   font: 700 11px Manrope;
   color: #869a90;
 }
-.feature .number,
-.dark .number {
+.solution-card.feature .number,
+.solution-card.dark .number {
   color: #f3cf56;
 }
 .card-icon {
@@ -766,7 +766,7 @@ nav a.active {
   color: #c99b22;
   font-size: 30px;
 }
-.dark {
+.solution-card.dark {
   background: linear-gradient(145deg, #0d513e, #082d24);
   color: #fff;
   border-color: var(--green);
@@ -1655,6 +1655,21 @@ footer {
   .floating a span {
     display: none;
   }
+}
+.site-header .brand,
+.site-header nav a {
+  color: #173e31;
+}
+.site-header nav a:hover,
+.site-header nav a.active {
+  color: #0d513e;
+}
+.hero .lede {
+  color: #3f554d;
+}
+.site-header .button,
+.hero-actions .button {
+  color: #fff;
 }
 
 /* Override base mobile breakpoint with a functioning drawer menu. */
