@@ -39,6 +39,48 @@ body .site-header > .button {
 body .hero .button:hover,
 body .site-header > .button:hover { background: #ffe59b; }
 body .hero-image { box-shadow: none; border-color: #40534a; }
+/* Full-screen space scene; image and stars never intercept controls. */
+body .hero.cosmic-hero {
+  background: #020303;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 100px max(5vw, 24px);
+}
+body .cosmic-hero .hero-copy { max-width: min(760px, 68%); }
+body .cosmic-hero .hero-sun {
+  position: absolute;
+  width: min(90vh, 80vw);
+  right: min(-45vh, -40vw);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  opacity: .95;
+}
+body .cosmic-hero .hero-sun img { clip-path: circle(46%); }
+.cosmic-stars {
+  position: absolute; inset: -80px; z-index: -2; pointer-events: none;
+  background-image: radial-gradient(1px 1px at 20px 30px, #fff9 98%, transparent), radial-gradient(1px 1px at 130px 90px, #fff5 98%, transparent), radial-gradient(2px 2px at 60px 150px, #f6d36b55 98%, transparent);
+  background-size: 213px 197px, 307px 283px, 457px 419px;
+  animation: cosmic-drift 45s linear infinite alternate;
+}
+@keyframes cosmic-drift { to { transform: translate3d(65px, 45px, 0); } }
+.cosmic-motion { position: absolute; bottom: 24px; left: 5vw; z-index: 3; background: #101614; color: #c8d3cd; border: 1px solid #39403c; border-radius: 30px; padding: 9px 14px; cursor: pointer; font: inherit; font-size: 11px; }
+.cosmic-credit { position: absolute; bottom: 30px; right: 5vw; color: #a7b3ac; font-size: 10px; }
+.cosmic-hero.motion-paused .cosmic-stars { animation-play-state: paused; }
+.solar-photo-section { background: #020303; padding: 0 max(5vw, 24px) 70px; }
+@media (max-width: 700px) {
+  body .hero.cosmic-hero { padding: 70px 24px 100px; }
+  body .cosmic-hero .hero-copy { max-width: 100%; }
+  body .cosmic-hero .hero-sun { width: 100vw; right: -65vw; opacity: .35; }
+  body .cosmic-hero .lede { color: #e2e9e4; }
+  .cosmic-credit { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cosmic-stars { animation: none; }
+  .cosmic-motion { display: none; }
+}
 /* Local Sun photography keeps the hero visual independent of external hosts. */
 body .hero { position: relative; isolation: isolate; }
 .hero-sun {

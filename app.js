@@ -1,4 +1,10 @@
 const form = document.getElementById('calcForm');
+const cosmicMotion = document.querySelector('.cosmic-motion');
+cosmicMotion?.addEventListener('click', () => {
+  const paused = cosmicMotion.closest('.cosmic-hero').classList.toggle('motion-paused');
+  cosmicMotion.setAttribute('aria-pressed', String(paused));
+  cosmicMotion.textContent = paused ? 'Resume background motion' : 'Pause background motion';
+});
 // Animate only after intersection; content stays visible if motion is unsupported.
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const entranceObserver = new IntersectionObserver((entries, observer) => {
