@@ -8,6 +8,29 @@
   --line: #dce4dc;
   --body: #52635d;
 }
+.solar-chat { position: fixed; left: 20px; bottom: 20px; z-index: 100; font-family: 'DM Sans', sans-serif; }
+.solar-chat button { cursor: pointer; font: inherit; }
+.chat-launch { padding: 15px 20px; background: #0d513e; color: white; border: 1px solid #ffffff60; border-radius: 30px; box-shadow: 0 6px 24px #112c2430; }
+.chat-panel { position: absolute; bottom: 64px; left: 0; width: min(390px, calc(100vw - 32px)); max-height: calc(100dvh - 110px); overflow: auto; border: 1px solid #dce4dc; border-radius: 18px; background: white; box-shadow: 0 16px 60px #112c2433; color: #112c24; }
+.chat-panel[hidden] { display: none; }
+.chat-panel header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 18px; background: #0d513e; color: white; }
+.chat-panel small { display: block; margin-top: 6px; font-size: 11px; }
+.chat-close { color: white; background: transparent; border: 0; font-size: 28px !important; min-width: 44px; min-height: 44px; }
+.chat-log { height: 230px; overflow-y: auto; padding: 16px; }
+.chat-message { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.6; padding: 12px; margin: 0 0 10px; background: #f2f6f3; border-radius: 12px; }
+.chat-message.user { background: #fff2bd; margin-left: 24px; }
+.chat-suggestions { padding: 0 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chat-suggestions button { background: white; color: #0d513e; border: 1px solid #bfd0c6; border-radius: 16px; padding: 9px; font-size: 12px; }
+.chat-notice { padding: 0 16px; font-size: 11px; line-height: 1.5; color: #52635d; }
+.chat-compose { padding: 0 16px; }
+.chat-compose label { display: block; font-size: 12px; margin-bottom: 6px; }
+.chat-compose div { display: flex; gap: 8px; }
+.chat-compose input { min-width: 0; width: 100%; font: inherit; font-size: 16px; padding: 12px; border: 1px solid #a8bdb0; border-radius: 8px; }
+.chat-compose button { background: #0d513e; color: white; border: 0; padding: 10px; border-radius: 8px; }
+.chat-compose button:disabled { opacity: .6; cursor: wait; }
+.chat-contact { display: block; padding: 15px 16px; color: #0d513e; font-size: 13px; }
+.solar-chat :focus-visible { outline: 3px solid #d7a620; outline-offset: 2px; }
+@media(max-width:640px) { .solar-chat { left: 12px; bottom: 16px; } .chat-launch { font-size: 12px !important; padding: 13px; } .chat-log { height: 190px; } }
 /* White framing with readable green typography. */
 body .site-header {
   background: transparent;

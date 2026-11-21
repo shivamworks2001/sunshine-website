@@ -1,4 +1,7 @@
 const form = document.getElementById('calcForm');
+const chatScript = document.createElement('script');
+chatScript.src = new URL('chatbot.js', document.currentScript.src).href;
+document.head.append(chatScript);
 // Animate only after intersection; content stays visible if motion is unsupported.
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const entranceObserver = new IntersectionObserver((entries, observer) => {

@@ -1,0 +1,19 @@
+Sunshine Solar Assistant
+
+Vercel project > Settings > Environment Variables:
+  OPENAI_API_KEY = your OpenAI project API key (Production and Preview as needed)
+  OPENAI_MODEL = an accessible Responses API model (optional; default gpt-4.1-mini)
+Redeploy after saving. Never commit or paste the key into browser JavaScript.
+
+API reference: https://developers.openai.com/api/reference/resources/responses/methods/create
+Knowledge and response rules: api/chat.js
+UI: chatbot.js and style.css. Loaded on all pages through app.js.
+
+No key: server returns an explicit unavailable message and users can contact the team.
+Messages are held in browser memory only, sent to OpenAI with store:false, and not saved by this application.
+AI-provider retention policies still apply. Chat does not submit leads or send email.
+GitHub Pages cannot execute the backend; use the Vercel deployment for chat.
+
+Before enabling paid requests, configure Vercel Firewall rate limiting for POST /api/chat
+and an appropriate OpenAI project budget/usage alert. The request limits in code bound
+individual requests, not total traffic. Do not rely on origin checking as authentication.
