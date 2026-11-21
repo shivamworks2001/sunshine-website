@@ -674,6 +674,18 @@ nav a.active {
   margin: 0;
   background: #f4f7f2;
   overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #dce4dc;
+}
+.gallery-photo { display: block; position: relative; overflow: hidden; }
+.gallery-photo:focus-visible { outline: 3px solid #0d513e; outline-offset: -3px; }
+.gallery-expand { position: absolute; bottom: 18px; right: 18px; padding: 10px 15px; border-radius: 24px; background: #112c24e8; color: #fff; font-size: 12px; }
+.gallery-grid .gallery-photo img { transition: transform .7s ease; }
+.gallery-photo:hover img, .gallery-photo:focus-visible img { transform: scale(1.04); }
+.gallery-grid figcaption strong { display: block; color: #112c24; font-size: 18px; margin-bottom: 6px; }
+.gallery-grid figcaption span { color: #52635d; }
+@media (prefers-reduced-motion: reduce) {
+  .gallery-grid .gallery-photo img { transition: none; transform: none; }
 }
 .gallery-grid img {
   display: block;
