@@ -30,6 +30,13 @@ const quoteForm = document.getElementById('quoteForm');
 if (quoteForm) {
   quoteForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (quoteForm.classList.contains('contact-form')) {
+      const details = new FormData(quoteForm);
+      const message = ['Solar enquiry', '', ...Array.from(details, ([key, value]) => `${key}: ${value}`)].join('\n');
+      window.location.href = `mailto:solarengineering@yahoo.com?subject=${encodeURIComponent('Solar enquiry — Sunshine Engineering')}&body=${encodeURIComponent(message)}`;
+      quoteForm.querySelector('.form-response').textContent = 'Your email app has been requested. Please send the draft there to complete your enquiry. If it does not open, email solarengineering@yahoo.com directly.';
+      return;
+    }
     event.currentTarget.querySelector('.form-response').textContent = 'Thank you — your enquiry is ready for the Sunshine Engineering team.';
   });
 }

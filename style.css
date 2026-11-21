@@ -711,6 +711,31 @@ nav a.active {
 }
 .contact-form {
   max-width: none;
+  width: 100%;
+  min-width: 0;
+  padding: clamp(20px, 4vw, 40px);
+  border: 1px solid #dce4dc;
+  border-top: 3px solid #f6c84c;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 48px #112c240a;
+}
+.contact-form label { display: block; min-width: 0; margin-bottom: 20px; color: #112c24; font-size: 14px; font-weight: 600; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea { display: block; width: 100%; min-width: 0; box-sizing: border-box; margin-top: 8px; padding: 13px 14px; border: 1px solid #bdcdc3; border-radius: 8px; background: #f9fbf9; color: #112c24; font: inherit; font-size: 16px; line-height: 1.5; }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: #62736a; opacity: 1; }
+.contact-form textarea { min-height: 150px; resize: vertical; }
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible { outline: 3px solid #0d513e30; outline-offset: 2px; border-color: #0d513e; }
+.contact-form .form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.contact-form .form-help { font-size: 13px; line-height: 1.6; color: #52635d; margin: 0 0 20px; }
+.contact-form .button { border: 0; cursor: pointer; }
+@media (max-width: 640px) {
+  .contact-form .form-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .contact-form .button { width: 100%; justify-content: space-between; }
 }
 .contact-map {
   padding-top: 32px;
