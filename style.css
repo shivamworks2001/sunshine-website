@@ -10,8 +10,8 @@
 }
 /* White framing with readable green typography. */
 body .site-header {
-  background: #fff;
-  border-bottom-color: #dce4dc;
+  background: transparent;
+  border-bottom-color: transparent;
 }
 body .site-header .brand,
 body .site-header nav a { color: #112c24; }
