@@ -10,8 +10,15 @@
 }
 .solar-chat { position: fixed; left: 20px; bottom: 20px; z-index: 100; font-family: 'DM Sans', sans-serif; }
 .solar-chat button { cursor: pointer; font: inherit; }
-.chat-launch { padding: 15px 20px; background: #0d513e; color: white; border: 1px solid #ffffff60; border-radius: 30px; box-shadow: 0 6px 24px #112c2430; }
-.chat-panel { position: absolute; bottom: 64px; left: 0; width: min(390px, calc(100vw - 32px)); max-height: calc(100dvh - 110px); overflow: auto; border: 1px solid #dce4dc; border-radius: 18px; background: white; box-shadow: 0 16px 60px #112c2433; color: #112c24; }
+.chat-launch { display: flex; align-items: center; gap: 10px; padding: 0; background: transparent; color: #112c24; border: 0; border-radius: 38px; text-align: left; }
+.chat-mascot { width: 66px; height: 66px; flex-shrink: 0; filter: drop-shadow(0 4px 8px #112c2430); transition: transform .25s ease; }
+.chat-launch:hover .chat-mascot { transform: rotate(-8deg) translateY(-3px); }
+.chat-greeting { background: white; border: 1px solid #dce4dc; border-radius: 16px 16px 16px 4px; padding: 10px 14px; box-shadow: 0 4px 20px #112c241a; font-size: 13px; line-height: 1.5; }
+.chat-greeting strong, .chat-greeting span { display: block; }
+.chat-greeting strong { color: #0d513e; font-size: 15px; }
+.chat-launch[aria-expanded="true"] .chat-greeting { display: none; }
+@media(prefers-reduced-motion:reduce) { .chat-launch .chat-mascot { transition: none; transform: none; } }
+.chat-panel { position: absolute; bottom: 80px; left: 0; width: min(390px, calc(100vw - 32px)); max-height: calc(100dvh - 120px); overflow: auto; border: 1px solid #dce4dc; border-radius: 18px; background: white; box-shadow: 0 16px 60px #112c2433; color: #112c24; }
 .chat-panel[hidden] { display: none; }
 .chat-panel header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 18px; background: #0d513e; color: white; }
 .chat-panel small { display: block; margin-top: 6px; font-size: 11px; }
@@ -30,7 +37,7 @@
 .chat-compose button:disabled { opacity: .6; cursor: wait; }
 .chat-contact { display: block; padding: 15px 16px; color: #0d513e; font-size: 13px; }
 .solar-chat :focus-visible { outline: 3px solid #d7a620; outline-offset: 2px; }
-@media(max-width:640px) { .solar-chat { left: 12px; bottom: 16px; } .chat-launch { font-size: 12px !important; padding: 13px; } .chat-log { height: 190px; } }
+@media(max-width:640px) { .solar-chat { left: 12px; bottom: 16px; } .chat-mascot { width: 54px; height: 54px; } .chat-greeting { font-size: 11px; padding: 8px 10px; } .chat-log { height: 190px; } }
 /* White framing with readable green typography. */
 body .site-header {
   background: transparent;
