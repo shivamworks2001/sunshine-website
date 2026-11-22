@@ -1,0 +1,57 @@
+/* Shared soft-green editorial theme. Content and normal scrolling are preserved. */
+:root { --ink: #123b2c; --green: #17583d; --light: #edf5e9; --line: #d2e3cf; --body: #486353; }
+body { background: #e4efdf; color: var(--ink); }
+.utility { background: #153f2f; }
+body .site-header { margin: 18px 24px 0; top: 12px; border-radius: 24px; background: #f6fbf0eb; border: 1px solid #fff9; padding-inline: 30px; box-shadow: 0 8px 28px #173b2c08; }
+body .site-header > .button, body .hero .button, .button {
+  background: #143f2e; color: #fff; border: 0; border-radius: 14px; box-shadow: none;
+}
+body .site-header > .button:hover, body .hero .button:hover, .button:hover { background: #226344; box-shadow: 0 8px 20px #143f2e18; }
+.button b, .site-header > .button b { background: #d4ed96; color: #143f2e; border-radius: 9px; }
+body .hero { margin: 14px 24px 24px; border-radius: 28px; padding: 76px 5% 28px; background: radial-gradient(ellipse at 50% 5%, #f7fce9 0%, #e3f0d8 55%, #cce3c8 100%); gap: 42px; }
+body .hero-copy { width: 100%; max-width: 940px; justify-self: center; text-align: center; }
+body .hero h1 { color: #123b2c; font-size: clamp(40px, 5.5vw, 76px); line-height: 1.08; letter-spacing: -.045em; margin-inline: auto; max-width: 940px; }
+body .hero h1 em { color: #44764b; }
+body .hero .eyebrow { justify-content: center; color: #27563b; }
+body .hero .lede { max-width: 690px; margin-inline: auto; color: #365744; font-size: clamp(16px, 1.6vw, 20px); }
+body .hero .hero-actions, body .hero .hero-note { justify-content: center; }
+body .hero .hero-note { color: #365744; text-align: left; }
+body .hero .text-link, body .hero .text-link b { color: #143f2e; }
+body .hero-image { width: 100%; max-width: 1240px; justify-self: center; border: 0; border-radius: 22px; height: clamp(280px, 34vw, 470px); }
+.intro-strip { background: #f6faef; border-color: #d2e3cf; }
+main > .section, main > .calculator, main > .quote, .contact-map {
+  margin: 24px; width: auto; max-width: none; border-radius: 28px; padding: clamp(32px, 5vw, 76px); background: #f9fcf5;
+}
+main > .section:nth-of-type(even) { background: #edf5e7; }
+.section h2, .section-heading h2 { letter-spacing: -.035em; }
+.subpage-hero { text-align: center; background: linear-gradient(145deg, #edf8df, #cfe5cb) !important; }
+.subpage-hero .eyebrow { justify-content: center; }
+.subpage-hero h1, .subpage-hero > p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
+.subpage-hero h1 { max-width: 1000px; }
+body .solution-card, .project-card, .resource, .contact-form, .testimonial-pending, .gallery-grid figure { border-radius: 20px; border-color: #d2e3cf; box-shadow: 0 5px 20px #143f2e05; }
+body .solution-card:not(.feature):not(.dark), .resource { background: #ffffffd9; }
+.project-card img, .about-image { border-radius: 18px; }
+.source-note { color: #526a58; }
+main > .calculator, main > .quote { background: #153f2f; color: #f5faef; }
+.calculator .calc-copy > p, .calculator .calc-copy small { color: #d7e7d4; }
+.calculator .calc-copy h2, .quote h2 { color: #f5faef; }
+.calculator > .button { background: #d4ed96; color: #143f2e; justify-self: start; }
+.quote .button { background: #17583d; color: white; }
+.calc-form, .quote form { border-radius: 18px; }
+footer { background: #113526; }
+.floating a, .floating-calculator { background: #17583d; }
+.floating .whatsapp { background: #347954; }
+@media(max-width:1100px) {
+  body .site-header { margin: 10px 12px 0; top: 8px; padding-inline: 18px; border-radius: 18px; }
+  body .site-header.nav-open nav { border-radius: 0 0 18px 18px; background: #f6fbf0; }
+  body .site-header .menu { background: #edf5e7; border: 0; }
+}
+@media(max-width:640px) {
+  body .site-header { margin: 0; top: 0; border-radius: 0; }
+  body .hero { margin: 10px; padding: 44px 20px 20px; border-radius: 20px; gap: 28px; }
+  body .hero h1 { font-size: clamp(35px, 9vw, 48px); }
+  body .hero .hero-actions { align-items: stretch; }
+  body .hero .text-link { align-self: center; }
+  main > .section, main > .calculator, main > .quote, .contact-map { margin: 12px 10px; padding: 32px 20px; border-radius: 20px; }
+  body .hero-image { height: 280px; min-height: 0; }
+}
