@@ -1,4 +1,15 @@
 /* Shared soft-green editorial theme. Content and normal scrolling are preserved. */
+.product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.product-card { display: flex; flex-direction: column; align-items: flex-start; padding: 30px; border: 1px solid #d2e3cf; border-radius: 22px; background: #fff; }
+.product-category { font-size: 12px; font-weight: 600; color: #386749; background: #eef5df; padding: 8px 12px; border-radius: 20px; }
+.product-card h2 { font-size: 26px; margin: 24px 0 14px; }
+.product-card p, .product-details p, .product-details li { color: #486353; line-height: 1.8; }
+.product-card .text-link { margin-top: auto; }
+.product-details > p { max-width: 850px; }
+.product-details h2 { margin-top: 32px; }
+.product-details h3 { margin-top: 30px; }
+@media(max-width:1000px) { .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media(max-width:640px) { .product-grid { grid-template-columns: 1fr; } .product-card { padding: 24px; } }
 :root { --ink: #123b2c; --green: #17583d; --light: #edf5e9; --line: #d2e3cf; --body: #486353; }
 body { background: #e4efdf; color: var(--ink); }
 .utility { background: #153f2f; }
@@ -41,7 +52,7 @@ main > .calculator, main > .quote { background: #153f2f; color: #f5faef; }
 footer { background: #113526; }
 .floating a, .floating-calculator { background: #17583d; }
 .floating .whatsapp { background: #347954; }
-@media(max-width:1100px) {
+@media(max-width:1280px) {
   body .site-header { margin: 10px 12px 0; top: 8px; padding-inline: 18px; border-radius: 18px; }
   body .site-header.nav-open nav { border-radius: 0 0 18px 18px; background: #f6fbf0; }
   body .site-header .menu { background: #edf5e7; border: 0; }

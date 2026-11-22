@@ -27,7 +27,7 @@ document.head.append(chatScript);
   const active = new Set();
   const entered = new WeakSet();
   const running = new WeakMap();
-  const cards = '.solution-card, .resource, .gallery-grid figure, .project-card, .why-list article, .process li, .testimonial-pending, .contact-detail';
+  const cards = '.product-card, .solution-card, .resource, .gallery-grid figure, .project-card, .why-list article, .process li, .testimonial-pending, .contact-detail';
   const selectors = `${cards}, main h1, main h2, main h3, main .eyebrow, main p, main .hero-actions, main .hero-note, main .about-image, main .hero-image, main .scope-list, main .brand-mark, main .section-heading .text-link`;
   const candidates = Array.from(document.querySelectorAll(selectors)).filter(element => {
     if (element.closest('dialog, form, .calc-result, .solar-chat, [data-no-motion]')) return false;
@@ -134,6 +134,6 @@ if (menuButton && header) {
     if (event.key === 'Escape' && header.classList.contains('nav-open')) { setMenu(false); menuButton.focus(); }
   });
   header.addEventListener('focusout', event => { if (!header.contains(event.relatedTarget)) setMenu(false); });
-  matchMedia('(max-width: 1100px)').addEventListener('change', () => setMenu(false));
+  matchMedia('(max-width: 1280px)').addEventListener('change', () => setMenu(false));
   document.querySelectorAll('#primary-nav a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 }

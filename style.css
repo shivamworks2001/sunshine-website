@@ -93,7 +93,7 @@ body .site-header > .button:hover { box-shadow: 0 6px 18px #b38e1820; }
 .site-header .brand { flex-shrink: 0; }
 .site-header nav a { position: relative; transition: color .2s ease; }
 .site-header a:focus-visible { outline: 2px solid #0d513e; outline-offset: 5px; border-radius: 4px; }
-@media (min-width: 1101px) {
+@media (min-width: 1281px) {
   .site-header { gap: clamp(18px, 2.4vw, 38px); }
   .site-header nav { gap: clamp(14px, 1.5vw, 24px); }
   .site-header nav a { padding: 12px 0; white-space: nowrap; }
@@ -1917,7 +1917,7 @@ footer {
 }
 
 /* Unified compact navigation for phones and tablets. */
-@media (max-width: 1100px) {
+@media (max-width: 1280px) {
   body .site-header { height: 72px; padding: 0 20px; gap: 16px; z-index: 120; }
   .site-header > .brand { flex-shrink: 0; }
   .site-header > .button { display: none; }
