@@ -21,8 +21,30 @@
   let busy = false;
   function message(text, role) { const p = document.createElement('p'); p.className = `chat-message ${role}`; p.textContent = text; log.append(p); log.scrollTop = log.scrollHeight; return p; }
   message('Hello! Ask about solar solutions, the installation process or requesting a quote. For a confirmed proposal, please contact our team.', 'assistant');
-  function toggle(open) { panel.hidden = !open; launch.setAttribute('aria-expanded', String(open)); (open ? input : launch).focus(); }
-  launch.onclick = () => toggle(panel.hidden);
+  let chatOpen = false;
+  let panelMotion;
+  function toggle(open) {
+    chatOpen = open;
+    panelMotion?.cancel();
+    launch.setAttribute('aria-expanded', String(open));
+    if (open) panel.hidden = false;
+    const finish = () => {
+      if (chatOpen !== open) return;
+      panel.hidden = !open;
+      (open ? input : launch).focus();
+    };
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !panel.animate) { finish(); return; }
+    const resting = { opacity: 1, transform: 'translateY(0) scale(1)' };
+    const collapsed = { opacity: 0, transform: 'translateY(18px) scale(.96)' };
+    panelMotion = panel.animate(open ? [collapsed, resting] : [resting, collapsed], {
+      duration: open ? 280 : 180,
+      easing: open ? 'cubic-bezier(.2,.8,.2,1)' : 'ease-in',
+      fill: 'none'
+    });
+    panelMotion.onfinish = finish;
+    if (!open) launch.focus();
+  }
+  launch.onclick = () => toggle(!chatOpen);
   widget.querySelector('.chat-close').onclick = () => toggle(false);
   widget.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) toggle(false); });
   widget.querySelectorAll('.chat-suggestions button').forEach(button => { button.onclick = () => { if (!busy) { input.value = button.textContent; form.requestSubmit(); } }; });
