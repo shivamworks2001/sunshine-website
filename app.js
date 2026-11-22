@@ -89,14 +89,19 @@ if (year) year.textContent = new Date().getFullYear();
 const menuButton = document.querySelector('.menu');
 const header = document.querySelector('.site-header');
 if (menuButton && header) {
-  menuButton.addEventListener('click', () => {
-    const isOpen = header.classList.toggle('nav-open');
+  const setMenu = (isOpen) => {
+    header.classList.toggle('nav-open', isOpen);
     menuButton.setAttribute('aria-expanded', String(isOpen));
     menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  };
+  menuButton.addEventListener('click', () => setMenu(!header.classList.contains('nav-open')));
+  document.addEventListener('click', event => {
+    if (!header.contains(event.target)) setMenu(false);
   });
-  document.querySelectorAll('#primary-nav a').forEach((link) => link.addEventListener('click', () => {
-    header.classList.remove('nav-open');
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Open navigation menu');
-  }));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && header.classList.contains('nav-open')) { setMenu(false); menuButton.focus(); }
+  });
+  header.addEventListener('focusout', event => { if (!header.contains(event.relatedTarget)) setMenu(false); });
+  matchMedia('(max-width: 1100px)').addEventListener('change', () => setMenu(false));
+  document.querySelectorAll('#primary-nav a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 }
