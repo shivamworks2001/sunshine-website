@@ -51,7 +51,7 @@ main > .section, main > .calculator, main > .quote, .contact-map {
 }
 main > .section:nth-of-type(even) { background: #edf5e7; }
 .section h2, .section-heading h2 { letter-spacing: -.035em; }
-.subpage-hero { text-align: center; background: linear-gradient(145deg, #edf8df, #cfe5cb) !important; }
+.subpage-hero { text-align: center; background: linear-gradient(145deg, #edf8df, #cfe5cb); }
 .subpage-hero .eyebrow { justify-content: center; }
 .subpage-hero h1, .subpage-hero > p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
 .subpage-hero h1 { max-width: 1000px; }
@@ -81,4 +81,28 @@ footer { background: #113526; }
   body .hero .text-link { align-self: center; }
   main > .section, main > .calculator, main > .quote, .contact-map { margin: 12px 10px; padding: 32px 20px; border-radius: 20px; }
   body .hero-image { height: 280px; min-height: 0; }
+}
+/* Photo-led banners: shared contrast and accent treatment across pages. */
+body .hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: #123b2c; min-height: 780px; padding: 72px 6% 170px;
+  align-content: start; border: 1px solid #ffffff70;
+}
+.hero-backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 65%; z-index: -2; }
+body .hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, #092d29ed 0%, #10392bc9 35%, #0b302567 70%, #092c2780 100%); pointer-events: none; }
+body .hero h1 { color: #fff; }
+body .hero h1 em { color: #d4ed96; }
+body .hero .eyebrow, body .hero .lede, body .hero .hero-note { color: #f0f7ed; }
+body .hero .hero-note { margin-top: 28px; }
+body .hero .text-link, body .hero .text-link b { color: #fff; border-color: #c9ddc8; }
+body .hero .button, .subpage-hero .button { background: #d4ed96; color: #143f2e; }
+body .hero .button:hover, .subpage-hero .button:hover { background: #e7f7b7; }
+.hero-photo-credit { position: absolute; bottom: 18px; left: 24px; right: 24px; margin: 0; color: white; font-size: 10px; text-align: right; text-shadow: 0 1px 4px #000; }
+main > .section.subpage-hero { background: linear-gradient(100deg, #092d29ed, #123b2cba), url('assets/solar-array.jpg') center / cover; color: #fff; }
+.subpage-hero h1, .subpage-hero .eyebrow, .subpage-hero > p:not(.eyebrow) { color: #f5faef; }
+@media(max-width:640px) {
+  body .hero { min-height: 720px; padding: 46px 22px 140px; }
+  .hero-backdrop { object-position: 43% center; }
+  body .hero::after { background: linear-gradient(180deg, #092d29f2, #092d29c4 65%, #092d2980); }
+  .hero-photo-credit { bottom: 16px; left: 16px; right: 16px; text-align: center; font-size: 9px; }
 }
