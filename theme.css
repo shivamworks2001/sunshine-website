@@ -98,9 +98,7 @@ body .hero .text-link, body .hero .text-link b { color: #fff; border-color: #c9d
 body .hero .button, .subpage-hero .button { background: #d4ed96; color: #143f2e; }
 body .hero .button:hover, .subpage-hero .button:hover { background: #e7f7b7; }
 .hero-photo-credit { position: absolute; bottom: 18px; left: 24px; right: 24px; margin: 0; color: white; font-size: 10px; text-align: right; text-shadow: 0 1px 4px #000; }
-main > .section.subpage-hero { background: linear-gradient(100deg, #092d29ed, #123b2cba), url('assets/solar-rooftop-team.jpg') center 58% / cover; color: #fff; min-height: 420px; padding-bottom: 72px; }
-.subpage-hero .banner-credit { display: block; margin-top: 24px; color: #e1eddf; font-size: 10px; }
-.subpage-hero .text-link { color: #f5faef; }
+main > .section.subpage-hero { background: linear-gradient(100deg, #092d29ed, #123b2cba), url('assets/solar-array.jpg') center / cover; color: #fff; }
 .subpage-hero h1, .subpage-hero .eyebrow, .subpage-hero > p:not(.eyebrow) { color: #f5faef; }
 @media(max-width:640px) {
   body .hero { min-height: 720px; padding: 46px 22px 140px; }
