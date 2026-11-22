@@ -20,13 +20,36 @@ const result = document.getElementById('calcResult');
 if (form && result) {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const bill = +document.getElementById('bill').value || 0;
-    const roof = +document.getElementById('roof').value || 0;
-    const capacity = Math.max(1, Math.min(roof ? roof / 100 : bill / 1200, bill / 600));
-    const generation = Math.round(capacity * 120);
-    const savings = Math.round(Math.min(bill * .75, generation * 7));
-    const payback = capacity <= 3 ? '4–6 years' : '5–7 years';
-    result.innerHTML = `<div class="result-grid"><span>Indicative system size<b>${capacity.toFixed(1)} kW</b></span><span>Est. monthly generation<b>~${generation} units</b></span><span>Potential monthly savings<b>~₹${savings.toLocaleString('en-IN')}</b></span></div><small>Indicative payback: ${payback}. Site survey required for a final recommendation.</small>`;
+    const value = id => Number(document.getElementById(id).value);
+    const bill = value('bill'), units = value('units'), roof = value('roof');
+    const yieldRate = value('yield'), unitCost = value('unitCost'), selfUse = value('selfUse') / 100;
+    const capacity = Math.floor(Math.min(units / yieldRate, roof / 108) * 10) / 10;
+    if (capacity < 0.1) { result.textContent = 'The entered roof area or consumption is too small for this preliminary estimate. Please contact our team for a site assessment.'; return; }
+    const generation = capacity * yieldRate;
+    const tariff = bill * 0.9 / units;
+    const savingsLow = Math.min(generation * 0.85 * selfUse, units) * tariff;
+    const savingsHigh = Math.min(generation * 1.15 * selfUse, units) * tariff;
+    const lowCost = capacity * unitCost * 0.8, highCost = capacity * unitCost * 1.2;
+    const number = n => Math.round(n).toLocaleString('en-IN');
+    result.replaceChildren();
+    const heading = document.createElement('p');
+    heading.textContent = `${document.getElementById('property').value} · ${document.getElementById('location').value.trim()} — indicative on-grid estimate`;
+    result.append(heading);
+    const grid = document.createElement('div'); grid.className = 'result-grid';
+    const metrics = [
+      ['Estimated system capacity', `${capacity.toFixed(1)} kW`],
+      ['Monthly generation', `${number(generation * .85)}–${number(generation * 1.15)} units`],
+      ['Potential monthly savings', `₹${number(savingsLow)}–₹${number(savingsHigh)}`],
+      ['Indicative installation cost', `₹${number(lowCost)}–₹${number(highCost)}`],
+      ['Simple payback', `${(lowCost / (12 * savingsHigh)).toFixed(1)}–${(highCost / (12 * savingsLow)).toFixed(1)} years`],
+      ['Roof area required', `${number(capacity * 108)} sq. ft.`]
+    ];
+    metrics.forEach(([label, value]) => { const cell = document.createElement('span'); cell.textContent = label; const bold = document.createElement('b'); bold.textContent = value; cell.append(bold); grid.append(cell); });
+    result.append(grid);
+    const note = document.createElement('p');
+    note.textContent = `${roof / 108 < units / yieldRate ? 'Roof area limits the suggested capacity. ' : ''}Uses an estimated energy tariff of ₹${tariff.toFixed(2)}/unit after a 10% fixed-charge allowance. Assumed yield: ${yieldRate} units/kW/month; on-site use: ${Math.round(selfUse * 100)}%; base installed cost: ₹${number(unitCost)}/kW. Not a quotation or guarantee. Actual costs, tariffs, shading and seasonal output require a site survey. No subsidy or export revenue included.`;
+    result.append(note);
+    const link = document.createElement('a'); link.className = 'text-link'; link.href = 'contact/index.html'; link.textContent = 'Request a site assessment →'; result.append(link);
   });
 }
 const quoteForm = document.getElementById('quoteForm');
