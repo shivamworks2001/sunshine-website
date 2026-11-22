@@ -74,7 +74,11 @@ footer { background: #113526; }
   body .site-header .menu { background: #edf5e7; border: 0; }
 }
 @media(max-width:640px) {
-  body .site-header { margin: 0; top: 0; border-radius: 0; }
+  body .site-header { margin: 10px 12px 0; top: 8px; border-radius: 18px; padding-inline: 14px; }
+  .floating { right: 12px; bottom: max(14px, env(safe-area-inset-bottom)); gap: 7px; }
+  .floating a, .floating-calculator { min-height: 44px; min-width: 108px; padding: 10px 13px; gap: 8px; }
+  .floating a span, .floating-calculator span { display: inline; font-size: 11px; white-space: nowrap; }
+  .chat-greeting { position: absolute; left: 0; bottom: 64px; width: 164px; }
   body .hero { margin: 10px; padding: 44px 20px 20px; border-radius: 20px; gap: 28px; }
   body .hero h1 { font-size: clamp(35px, 9vw, 48px); }
   body .hero .hero-actions { align-items: stretch; }
