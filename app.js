@@ -20,11 +20,13 @@ if (calculatorDialog) {
 const chatScript = document.createElement('script');
 chatScript.src = new URL('chatbot.js', document.currentScript.src).href;
 document.head.append(chatScript);
-// One-time scroll entrances. Nothing is hidden before the observer runs.
+// Replay entrances after a complete viewport exit; keep all content visible by default.
 (() => {
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   if (!('IntersectionObserver' in window) || !Element.prototype.animate || motion.matches) return;
   const active = new Set();
+  const entered = new WeakSet();
+  const running = new WeakMap();
   const cards = '.solution-card, .resource, .gallery-grid figure, .project-card, .why-list article, .process li, .testimonial-pending, .contact-detail';
   const selectors = `${cards}, main h1, main h2, main h3, main .eyebrow, main p, main .hero-actions, main .hero-note, main .about-image, main .hero-image, main .scope-list, main .brand-mark, main .section-heading .text-link`;
   const candidates = Array.from(document.querySelectorAll(selectors)).filter(element => {
@@ -35,21 +37,27 @@ document.head.append(chatScript);
   });
   const observer = new IntersectionObserver(entries => {
     let order = 0;
-    entries.forEach(({target, isIntersecting}) => {
-      if (!isIntersecting) return;
-      observer.unobserve(target);
+    entries.forEach(({target, isIntersecting, intersectionRatio}) => {
+      if (!isIntersecting) {
+        entered.delete(target);
+        running.get(target)?.cancel();
+        return;
+      }
+      if (intersectionRatio < .18 || entered.has(target)) return;
+      entered.add(target);
       if (motion.matches || target.contains(document.activeElement)) return;
       const isImage = target.matches('.about-image, .hero-image, .gallery-grid figure');
-      const distance = matchMedia('(max-width: 640px)').matches ? 16 : 30;
+      const distance = matchMedia('(max-width: 640px)').matches ? 22 : 36;
       const animation = target.animate([
         { opacity: .12, transform: `translateY(${distance}px)${isImage ? ' scale(.98)' : ''}` },
         { opacity: 1, transform: 'translateY(0) scale(1)' }
-      ], { duration: isImage ? 850 : 650, delay: Math.min(order++ * 65, 260), easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+      ], { duration: isImage ? 1100 : 900, delay: Math.min(order++ * 70, 210), easing: 'cubic-bezier(.22,.65,.3,1)', fill: 'backwards' });
       active.add(animation);
+      running.set(target, animation);
       animation.onfinish = () => active.delete(animation);
       animation.oncancel = () => active.delete(animation);
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  }, { threshold: [0, .18], rootMargin: '0px' });
   candidates.forEach(element => observer.observe(element));
   motion.addEventListener('change', event => {
     if (event.matches) { observer.disconnect(); active.forEach(animation => animation.cancel()); active.clear(); }
