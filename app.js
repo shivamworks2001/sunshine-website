@@ -20,20 +20,44 @@ if (calculatorDialog) {
 const chatScript = document.createElement('script');
 chatScript.src = new URL('chatbot.js', document.currentScript.src).href;
 document.head.append(chatScript);
-// Animate only after intersection; content stays visible if motion is unsupported.
-if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const entranceObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(({ target, isIntersecting }) => {
+// One-time scroll entrances. Nothing is hidden before the observer runs.
+(() => {
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!('IntersectionObserver' in window) || !Element.prototype.animate || motion.matches) return;
+  const active = new Set();
+  const cards = '.solution-card, .resource, .gallery-grid figure, .project-card, .why-list article, .process li, .testimonial-pending, .contact-detail';
+  const selectors = `${cards}, main h1, main h2, main h3, main .eyebrow, main p, main .hero-actions, main .hero-note, main .about-image, main .hero-image, main .scope-list, main .brand-mark, main .section-heading .text-link`;
+  const candidates = Array.from(document.querySelectorAll(selectors)).filter(element => {
+    if (element.closest('dialog, form, .calc-result, .solar-chat, [data-no-motion]')) return false;
+    // Animate cards as a unit so their children never move twice.
+    if (element.parentElement.closest(cards)) return false;
+    return true;
+  });
+  const observer = new IntersectionObserver(entries => {
+    let order = 0;
+    entries.forEach(({target, isIntersecting}) => {
       if (!isIntersecting) return;
-      target.animate([
-        { transform: 'translateY(24px)' },
-        { transform: 'translateY(0)' }
-      ], { duration: 700, easing: 'cubic-bezier(.2,.7,.2,1)' });
       observer.unobserve(target);
+      if (motion.matches || target.contains(document.activeElement)) return;
+      const isImage = target.matches('.about-image, .hero-image, .gallery-grid figure');
+      const distance = matchMedia('(max-width: 640px)').matches ? 16 : 30;
+      const animation = target.animate([
+        { opacity: .12, transform: `translateY(${distance}px)${isImage ? ' scale(.98)' : ''}` },
+        { opacity: 1, transform: 'translateY(0) scale(1)' }
+      ], { duration: isImage ? 850 : 650, delay: Math.min(order++ * 65, 260), easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+      active.add(animation);
+      animation.onfinish = () => active.delete(animation);
+      animation.oncancel = () => active.delete(animation);
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(element => entranceObserver.observe(element));
-}
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  candidates.forEach(element => observer.observe(element));
+  motion.addEventListener('change', event => {
+    if (event.matches) { observer.disconnect(); active.forEach(animation => animation.cancel()); active.clear(); }
+  });
+  document.addEventListener('focusin', event => {
+    active.forEach(animation => { if (animation.effect?.target?.contains(event.target)) animation.cancel(); });
+  });
+})();
 const result = document.getElementById('calcResult');
 if (form && result) {
   form.addEventListener('submit', (event) => {
