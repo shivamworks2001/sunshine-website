@@ -3,14 +3,7 @@
   const widget = document.createElement('aside');
   widget.className = 'solar-chat';
   widget.innerHTML = `<button class="chat-launch" aria-label="Open Sunshine Solar Assistant" aria-expanded="false" aria-controls="solar-chat-panel">
-      <svg class="chat-mascot" viewBox="0 0 80 80" aria-hidden="true" focusable="false">
-        <circle cx="40" cy="40" r="38" fill="#0d513e"/>
-        <g stroke="#f6ce56" stroke-width="4" stroke-linecap="round"><path d="M40 10v5M40 65v5M10 40h5M65 40h5M19 19l4 4M57 57l4 4M19 61l4-4M57 23l4-4"/></g>
-        <circle cx="40" cy="40" r="22" fill="#ffdb70"/>
-        <ellipse cx="32" cy="37" rx="2.5" ry="3.5" fill="#173b2e"/><ellipse cx="48" cy="37" rx="2.5" ry="3.5" fill="#173b2e"/>
-        <ellipse cx="26" cy="44" rx="4" ry="2.5" fill="#f4a45f"/><ellipse cx="54" cy="44" rx="4" ry="2.5" fill="#f4a45f"/>
-        <path d="M32 46q8 10 16 0" fill="#fff" stroke="#173b2e" stroke-width="2" stroke-linejoin="round"/>
-      </svg>
+      <img class="chat-mascot" src="${new URL('assets/chat-mascot.png', base).href}" alt="" width="80" height="80" decoding="async">
       <span class="chat-greeting"><strong>Hi! 👋</strong><span>How can I help you?</span></span>
     </button>
     <section id="solar-chat-panel" class="chat-panel" hidden aria-label="Sunshine Solar Assistant">
