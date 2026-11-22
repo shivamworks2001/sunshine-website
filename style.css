@@ -8,6 +8,16 @@
   --line: #dce4dc;
   --body: #52635d;
 }
+.section-scroll-toggle { position: fixed; right: 22px; top: 94px; z-index: 15; padding: 8px 12px; border: 1px solid #dce4dc; border-radius: 20px; background: #fffffff2; color: #0d513e; font: 500 11px 'DM Sans', sans-serif; cursor: pointer; }
+.section-scroll-toggle[hidden] { display: none; }
+@media (min-width: 1101px) and (min-height: 650px) and (prefers-reduced-motion: no-preference) {
+  html.section-scroll { scroll-snap-type: y mandatory; scroll-padding-top: 84px; }
+  html.section-scroll .home-page main > section:not(.intro-strip),
+  html.section-scroll .home-page > footer { scroll-snap-align: start; scroll-snap-stop: normal; }
+  html.section-scroll .home-page main > section:not(.intro-strip) { min-height: calc(100svh - 84px); }
+  html.section-scroll .home-page main > section.section { padding-top: 64px; padding-bottom: 64px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 .finance-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 32px 0; align-items: start; }
 .testimonials { background: #f7f9f5; }
 .testimonial-pending { display: flex; gap: 28px; align-items: flex-start; padding: clamp(24px, 4vw, 48px); border: 1px solid #dce4dc; border-radius: 18px; background: #fff; }
