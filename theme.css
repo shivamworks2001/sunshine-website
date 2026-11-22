@@ -98,11 +98,20 @@ body .hero .text-link, body .hero .text-link b { color: #fff; border-color: #c9d
 body .hero .button, .subpage-hero .button { background: #d4ed96; color: #143f2e; }
 body .hero .button:hover, .subpage-hero .button:hover { background: #e7f7b7; }
 .hero-photo-credit { position: absolute; bottom: 18px; left: 24px; right: 24px; margin: 0; color: white; font-size: 10px; text-align: right; text-shadow: 0 1px 4px #000; }
-main > .section.subpage-hero { background: linear-gradient(100deg, #092d29ed, #123b2cba), url('assets/solar-array.jpg') center / cover; color: #fff; }
-.subpage-hero h1, .subpage-hero .eyebrow, .subpage-hero > p:not(.eyebrow) { color: #f5faef; }
+main > .section.subpage-hero { background: linear-gradient(145deg, #edf8df, #cfe5cb); color: #123b2c; }
+.subpage-hero h1, .subpage-hero .eyebrow, .subpage-hero > p:not(.eyebrow) { color: #123b2c; }
 @media(max-width:640px) {
   body .hero { min-height: 720px; padding: 46px 22px 140px; }
   .hero-backdrop { object-position: 43% center; }
   body .hero::after { background: linear-gradient(180deg, #092d29f2, #092d29c4 65%, #092d2980); }
   .hero-photo-credit { bottom: 16px; left: 16px; right: 16px; text-align: center; font-size: 9px; }
 }
+
+/* Apply the image treatment to photography, not page title banners. */
+.about-image, .gallery-photo { position: relative; overflow: hidden; isolation: isolate; }
+.about-image::after, .gallery-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #0b392b20, #0b392b66); pointer-events: none; border-radius: inherit; }
+.gallery-expand { z-index: 1; background: #d4ed96; color: #143f2e; }
+.solution-card.feature:after { background: linear-gradient(0deg, #092d22ed, #0b392b30); }
+.process-art > img, .case-study-image, .project-main > img { filter: brightness(.86) sepia(.16) hue-rotate(65deg); }
+.page-cta .button, .about-copy .button, .product-detail-copy .button, .product-details .button { background: #d4ed96; color: #143f2e; }
+.page-cta .button:hover, .product-detail-copy .button:hover { background: #e7f7b7; }
