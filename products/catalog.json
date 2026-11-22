@@ -9,7 +9,9 @@
       "Monthly electricity consumption",
       "Usable unshaded roof area",
       "DISCOM and sanctioned load"
-    ]
+    ],
+    "image": "../assets/product-illustrations.png",
+    "imageCell": 0
   },
   {
     "slug": "off-grid",
@@ -21,7 +23,9 @@
       "Appliances and connected load",
       "Daily operating hours",
       "Required backup duration"
-    ]
+    ],
+    "image": "../assets/product-illustrations.png",
+    "imageCell": 1
   },
   {
     "slug": "street-lighting",
@@ -33,7 +37,9 @@
       "Road or site dimensions",
       "Lighting hours per night",
       "Pole placement and shading"
-    ]
+    ],
+    "image": "../assets/product-illustrations.png",
+    "imageCell": 2
   },
   {
     "slug": "water-heating",
@@ -45,7 +51,9 @@
       "Daily hot-water requirement",
       "Number of users and usage pattern",
       "Water quality and roof space"
-    ]
+    ],
+    "image": "../assets/product-illustrations.png",
+    "imageCell": 3
   },
   {
     "slug": "water-pumping",
@@ -57,18 +65,22 @@
       "Water source and depth",
       "Required head and daily flow",
       "Seasonal water demand"
-    ]
+    ],
+    "image": "../assets/product-illustrations.png",
+    "imageCell": 4
   },
   {
     "slug": "fencing",
     "name": "Solar fencing",
     "category": "Boundary applications",
-    "description": "Solar fencing is included in Sunshine Engineering’s published solution range. A suitable approach should be defined around the boundary, site conditions, required coverage and applicable safety considerations.",
+    "description": "Solar fencing is included in Sunshine Engineering\u2019s published solution range. A suitable approach should be defined around the boundary, site conditions, required coverage and applicable safety considerations.",
     "details": "Share the site details with the team to determine whether a solar fencing solution is appropriate.",
     "assessment": [
       "Boundary length",
       "Site layout and purpose",
       "Local safety requirements"
-    ]
+    ],
+    "image": "../assets/product-illustrations.png",
+    "imageCell": 5
   }
 ]

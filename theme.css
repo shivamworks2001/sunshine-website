@@ -1,4 +1,14 @@
 /* Shared soft-green editorial theme. Content and normal scrolling are preserved. */
+.product-visual { width: 100%; margin: 0 0 24px; }
+.product-render { width: 100%; aspect-ratio: 2 / 3; border-radius: 16px; background-image: url('assets/product-illustrations.png'); background-size: 300% 200%; background-repeat: no-repeat; background-color: #cee2c8; }
+.product-render-0 { background-position: 0 0; }
+.product-render-1 { background-position: 50% 0; }
+.product-render-2 { background-position: 100% 0; }
+.product-render-3 { background-position: 0 100%; }
+.product-render-4 { background-position: 50% 100%; }
+.product-render-5 { background-position: 100% 100%; }
+.product-visual figcaption { font-size: 11px; color: #526a58; padding-top: 8px; line-height: 1.5; }
+.product-details .product-visual { max-width: 360px; margin: 28px auto; }
 .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .product-card { display: flex; flex-direction: column; align-items: flex-start; padding: 30px; border: 1px solid #d2e3cf; border-radius: 22px; background: #fff; }
 .product-category { font-size: 12px; font-weight: 600; color: #386749; background: #eef5df; padding: 8px 12px; border-radius: 20px; }
