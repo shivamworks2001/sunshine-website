@@ -3,7 +3,7 @@
   const widget = document.createElement('aside');
   widget.className = 'solar-chat';
   widget.innerHTML = `<button class="chat-launch" aria-label="Open Sunshine Solar Assistant" aria-expanded="false" aria-controls="solar-chat-panel">
-      <img class="chat-mascot" src="${new URL('assets/chat-mascot.png', base).href}" alt="" width="80" height="80" decoding="async">
+      <img class="chat-mascot" src="${new URL('assets/chat-mascot-transparent.png', base).href}" alt="" width="80" height="80" decoding="async">
       <span class="chat-greeting"><strong>Hi! 👋</strong><span>How can I help you?</span></span>
     </button>
     <section id="solar-chat-panel" class="chat-panel" hidden aria-label="Sunshine Solar Assistant">
