@@ -1,19 +1,4 @@
 const form = document.getElementById('calcForm');
-// Native section scrolling preserves touch, keyboard and tall-section access.
-const sectionScrollToggle = document.querySelector('.section-scroll-toggle');
-if (sectionScrollToggle) {
-  const screenMode = matchMedia('(min-width: 1101px) and (min-height: 650px) and (prefers-reduced-motion: no-preference)');
-  let sectionScrolling = true;
-  const updateSectionScroll = () => {
-    sectionScrollToggle.hidden = !screenMode.matches;
-    document.documentElement.classList.toggle('section-scroll', screenMode.matches && sectionScrolling);
-    sectionScrollToggle.setAttribute('aria-pressed', String(sectionScrolling));
-    sectionScrollToggle.textContent = `Section scrolling: ${sectionScrolling ? 'on' : 'off'}`;
-  };
-  sectionScrollToggle.addEventListener('click', () => { sectionScrolling = !sectionScrolling; updateSectionScroll(); });
-  screenMode.addEventListener('change', updateSectionScroll);
-  updateSectionScroll();
-}
 const calculatorDialog = document.getElementById('calculator-dialog');
 if (calculatorDialog) {
   let calculatorOpener;
