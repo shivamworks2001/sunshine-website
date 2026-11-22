@@ -9,6 +9,13 @@
   --body: #52635d;
 }
 .finance-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 32px 0; align-items: start; }
+.testimonials { background: #f7f9f5; }
+.testimonial-pending { display: flex; gap: 28px; align-items: flex-start; padding: clamp(24px, 4vw, 48px); border: 1px solid #dce4dc; border-radius: 18px; background: #fff; }
+.testimonial-quote-mark { flex-shrink: 0; color: #0d513e; background: #fff3c5; width: 64px; height: 64px; text-align: center; border-radius: 50%; font: 72px Georgia, serif; line-height: 1.2; }
+.testimonial-status { font-size: 12px; color: #52635d; }
+.testimonial-pending h3 { font: 700 24px Manrope, sans-serif; color: #112c24; margin: 12px 0; }
+.testimonial-pending p { color: #52635d; max-width: 680px; line-height: 1.75; margin-bottom: 24px; }
+@media(max-width:640px) { .testimonial-pending { flex-direction: column; gap: 14px; } }
 #subsidy > p, .application-steps { color: #52635d; line-height: 1.8; }
 #subsidy .source-note a { color: #0d513e; text-decoration: underline; }
 .application-steps li { padding: 8px 0; }
