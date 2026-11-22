@@ -319,28 +319,7 @@
             system design and other factors.</small
           >
         </div>
-        <form class="calc-form" id="calcForm">
-          <div class="form-row">
-            <label>Monthly electricity bill (₹)<input id="bill" type="number" min="1" max="10000000" step="any" placeholder="e.g. 5000" required></label>
-            <label>Monthly consumption (units / kWh)<input id="units" type="number" min="1" max="1000000" step="any" placeholder="e.g. 600" required></label>
-          </div>
-          <div class="form-row">
-            <label>Location<input id="location" maxlength="100" placeholder="City / district" required></label>
-            <label>Property type<select id="property"><option>Home</option><option>Business</option><option>Industrial</option><option>Institution</option></select></label>
-          </div>
-          <label>Available unshaded roof area (sq. ft.)<input id="roof" type="number" min="1" max="10000000" step="any" placeholder="e.g. 600" required></label>
-          <details class="calc-assumptions"><summary>Adjust planning assumptions</summary>
-            <p>Illustrative inputs, not a Sunshine quotation or a location-specific survey. Adjust using your installer’s assessment. Location and property type identify your enquiry; they do not automatically change these assumptions.</p>
-            <div class="form-row">
-              <label>Monthly yield (units per kW)<input id="yield" type="number" value="120" min="30" max="200" required></label>
-              <label>Installed cost (₹ per kW)<input id="unitCost" type="number" value="60000" min="10000" max="200000" required></label>
-            </div>
-            <label>Solar energy used on site (%)<input id="selfUse" type="number" value="80" min="1" max="100" required></label>
-            <p>Uses 108 sq. ft. per kW and ±15% generation / ±20% cost ranges. Export income, batteries, subsidies, finance, maintenance and degradation are excluded. Fixed charges are approximated as 10% of your bill.</p>
-          </details>
-          <button class="button" type="submit">Calculate my solar estimate <b>→</b></button>
-          <div class="calc-result" id="calcResult" aria-live="polite"><span>Enter your details to explore your solar potential.</span></div>
-        </form>
+        <button class="button" type="button" data-open-calculator>Open solar calculator <b aria-hidden="true">↗</b></button>
       </section>
       <section class="section about" id="about">
         <div class="about-image reveal">
@@ -496,7 +475,34 @@
         ><span>Privacy policy · Terms</span>
       </div>
     </footer>
+    <dialog id="calculator-dialog" aria-labelledby="calculator-title">
+      <div class="calculator-modal-head"><div><p class="eyebrow">Plan your switch</p><h2 id="calculator-title">Your solar savings estimate</h2></div><button type="button" class="calculator-close" aria-label="Close solar calculator" autofocus>×</button></div>
+      <p class="calculator-modal-note">Indicative estimates only. Actual results depend on your site, tariff and final system design.</p>
+        <form class="calc-form" id="calcForm">
+          <div class="form-row">
+            <label>Monthly electricity bill (₹)<input id="bill" type="number" min="1" max="10000000" step="any" placeholder="e.g. 5000" required></label>
+            <label>Monthly consumption (units / kWh)<input id="units" type="number" min="1" max="1000000" step="any" placeholder="e.g. 600" required></label>
+          </div>
+          <div class="form-row">
+            <label>Location<input id="location" maxlength="100" placeholder="City / district" required></label>
+            <label>Property type<select id="property"><option>Home</option><option>Business</option><option>Industrial</option><option>Institution</option></select></label>
+          </div>
+          <label>Available unshaded roof area (sq. ft.)<input id="roof" type="number" min="1" max="10000000" step="any" placeholder="e.g. 600" required></label>
+          <details class="calc-assumptions"><summary>Adjust planning assumptions</summary>
+            <p>Illustrative inputs, not a Sunshine quotation or a location-specific survey. Adjust using your installer’s assessment. Location and property type identify your enquiry; they do not automatically change these assumptions.</p>
+            <div class="form-row">
+              <label>Monthly yield (units per kW)<input id="yield" type="number" value="120" min="30" max="200" required></label>
+              <label>Installed cost (₹ per kW)<input id="unitCost" type="number" value="60000" min="10000" max="200000" required></label>
+            </div>
+            <label>Solar energy used on site (%)<input id="selfUse" type="number" value="80" min="1" max="100" required></label>
+            <p>Uses 108 sq. ft. per kW and ±15% generation / ±20% cost ranges. Export income, batteries, subsidies, finance, maintenance and degradation are excluded. Fixed charges are approximated as 10% of your bill.</p>
+          </details>
+          <button class="button" type="submit">Calculate my solar estimate <b>→</b></button>
+          <div class="calc-result" id="calcResult" aria-live="polite"><span>Enter your details to explore your solar potential.</span></div>
+        </form>
+    </dialog>
     <div class="floating">
+      <button class="floating-calculator" type="button" data-open-calculator aria-haspopup="dialog" aria-controls="calculator-dialog">▦<span>Calculator</span></button>
       <a href="contact/index.html" aria-label="Contact Sunshine Engineering"
         >☎<span>Contact</span></a
       ><a

@@ -1,4 +1,22 @@
 const form = document.getElementById('calcForm');
+const calculatorDialog = document.getElementById('calculator-dialog');
+if (calculatorDialog) {
+  let calculatorOpener;
+  document.querySelectorAll('[data-open-calculator]').forEach(button => button.addEventListener('click', () => {
+    calculatorOpener = button;
+    calculatorDialog.showModal();
+    document.body.classList.add('calculator-modal-open');
+  }));
+  calculatorDialog.querySelector('.calculator-close').addEventListener('click', () => calculatorDialog.close());
+  calculatorDialog.addEventListener('click', event => {
+    const bounds = calculatorDialog.getBoundingClientRect();
+    if (event.target === calculatorDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) calculatorDialog.close();
+  });
+  calculatorDialog.addEventListener('close', () => {
+    document.body.classList.remove('calculator-modal-open');
+    calculatorOpener?.focus();
+  });
+}
 const chatScript = document.createElement('script');
 chatScript.src = new URL('chatbot.js', document.currentScript.src).href;
 document.head.append(chatScript);

@@ -1510,7 +1510,7 @@ footer {
   gap: 8px;
   flex-direction: column;
 }
-.floating a {
+.floating a, .floating-calculator {
   border-radius: 30px;
   padding: 11px 15px;
   background: var(--green);
@@ -1521,13 +1521,25 @@ footer {
   gap: 8px;
   align-items: center;
 }
-.floating a span {
+.floating a span, .floating-calculator span {
   font-size: 11px;
   font-weight: 700;
 }
 .floating .whatsapp {
   background: #26a86b;
 }
+.floating-calculator { border: 0; font-family: inherit; cursor: pointer; }
+.calculator-modal-open { overflow: hidden; }
+#calculator-dialog { width: min(760px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); margin: auto; padding: clamp(20px, 4vw, 36px); border: 1px solid #dce4dc; border-radius: 18px; color: #112c24; background: #fff; overflow-y: auto; box-shadow: 0 24px 90px #112c2440; }
+#calculator-dialog::backdrop { background: #10261ec4; backdrop-filter: blur(4px); }
+.calculator-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.calculator-modal-head h2 { font-size: clamp(23px, 4vw, 32px); margin: 0; }
+.calculator-modal-head .eyebrow { margin-bottom: 10px; }
+.calculator-close { flex-shrink: 0; width: 44px; height: 44px; border: 1px solid #dce4dc; background: #f4f7f2; color: #112c24; border-radius: 50%; font-size: 28px; cursor: pointer; }
+.calculator-modal-note { font-size: 13px; color: #52635d; line-height: 1.6; margin: 16px 0 24px; }
+#calculator-dialog .calc-form { padding: 0; border: 0; box-shadow: none; backdrop-filter: none; }
+#calculator-dialog :focus-visible { outline: 2px solid #0d513e; outline-offset: 3px; }
+@media(max-width:640px) { .floating-calculator { padding: 12px; min-height: 44px; } }
 .reveal {
   opacity: 1;
   transform: none;
