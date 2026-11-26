@@ -245,3 +245,8 @@ main > .process li b { color:var(--green); }
 /* Impact cards use the established navy and solar-yellow palette. */
 #impact .cred-logos > span { background:#073878; border-color:#073878; color:#fff; }
 #impact .cred-logos strong { color:#ffd13e; }
+/* Override legacy credential-logo dimensions on the impact metric cards. */
+#impact .cred-logos > span { width:100%; height:auto; min-height:220px; box-sizing:border-box; padding:30px; text-transform:none; overflow-wrap:anywhere; }
+#impact .cred-logos strong { max-width:100%; }
+@media(max-width:1200px) { #impact .cred-logos { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { #impact .cred-logos { grid-template-columns:1fr; } #impact .cred-logos > span { min-height:190px; padding:28px; } }
