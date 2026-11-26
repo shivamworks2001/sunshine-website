@@ -166,3 +166,22 @@ main > .section.subpage-hero { background: linear-gradient(145deg, #f1f9ff, #d8e
 .news-related .resource { padding:28px; border:1px solid var(--line); }
 .news-sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 @media(max-width:800px) { .news-feature,.news-related { grid-template-columns:1fr; } .news-art { min-height:220px; } .news-enquiries { flex-direction:column; align-items:flex-start; } }
+
+.career-notice { padding:22px 26px; margin:28px 0; border-left:4px solid #ffd13e; border-radius:12px; background:#fff8df; color:#102c50; }
+.career-notice p { margin:8px 0 0; line-height:1.7; }
+.career-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.career-card { min-width:0; padding:clamp(24px,3vw,40px); border:1px solid var(--line); border-radius:24px; background:#fff; }
+.career-card .product-category { display:inline-block; }
+.career-card h3 { font-size:28px; margin:20px 0 12px; }
+.career-card p,.career-card li,.career-steps { color:var(--body); line-height:1.75; }
+.career-status { display:inline-block; font-size:12px; color:#705300; background:#fff5cf; border-radius:8px; padding:6px 10px; margin:12px 0; }
+.career-facts { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+.career-facts dt { font-size:12px; color:var(--body); }.career-facts dd { margin:4px 0 0; font-weight:600; }
+.career-card details { border-block:1px solid var(--line); margin:24px 0; padding:16px 0; }
+.career-card summary { cursor:pointer; font-weight:700; padding:6px 0; }
+.career-card h4 { margin:20px 0 10px; }.career-card ul { padding-left:20px; }.career-card li { margin:8px 0; }
+.career-email-note { font-size:12px; margin-top:12px; }
+.career-steps { padding-left:22px; }.career-steps li { padding:10px 0; }
+@media(min-width:1441px) { .site-header nav { gap:clamp(12px,1.3vw,24px); } }
+@media(max-width:800px) { .career-grid { grid-template-columns:1fr; } }
+@media(max-width:380px) { .career-facts { grid-template-columns:1fr; } }

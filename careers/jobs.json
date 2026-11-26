@@ -1,0 +1,86 @@
+[
+  {
+    "id": "marketing-manager",
+    "title": "Marketing Manager",
+    "department": "Sales & Marketing",
+    "summary": "Build relationships and help customers understand suitable solar solutions.",
+    "responsibilities": [
+      "Plan local marketing campaigns and follow up on customer enquiries.",
+      "Coordinate site-assessment enquiries with the technical team.",
+      "Maintain lead records, prepare proposals with approved pricing and report campaign performance."
+    ],
+    "requirements": [
+      "Clear communication and customer relationship skills.",
+      "Experience with sales planning, spreadsheets and lead management.",
+      "An interest in renewable energy; solar-sector experience is useful."
+    ],
+    "status": "Sample — vacancy not confirmed",
+    "location": "To be confirmed",
+    "employmentType": "To be confirmed",
+    "salary": "To be confirmed",
+    "deadline": "To be confirmed"
+  },
+  {
+    "id": "accountant",
+    "title": "Accountant",
+    "department": "Finance & Accounts",
+    "summary": "Support accurate financial records and organised day-to-day accounting.",
+    "responsibilities": [
+      "Record invoices, receipts, payments and expense vouchers.",
+      "Reconcile bank statements and maintain supplier and customer ledgers.",
+      "Prepare supporting records for tax filings and coordinate with the appointed accountant or auditor."
+    ],
+    "requirements": [
+      "Working knowledge of bookkeeping and accounting software.",
+      "Confidence with spreadsheets, reconciliation and documentation.",
+      "Attention to detail and responsible handling of financial information."
+    ],
+    "status": "Sample — vacancy not confirmed",
+    "location": "To be confirmed",
+    "employmentType": "To be confirmed",
+    "salary": "To be confirmed",
+    "deadline": "To be confirmed"
+  },
+  {
+    "id": "back-office",
+    "title": "Back Office Executive",
+    "department": "Operations & Administration",
+    "summary": "Keep customer records, documents and internal coordination running smoothly.",
+    "responsibilities": [
+      "Maintain enquiry, quotation and service-request records.",
+      "Coordinate appointments and communicate updates to customers.",
+      "Organise project paperwork and support procurement and office administration."
+    ],
+    "requirements": [
+      "Good computer, email and spreadsheet skills.",
+      "Clear written and spoken communication.",
+      "Strong organisation, accuracy and follow-through."
+    ],
+    "status": "Sample — vacancy not confirmed",
+    "location": "To be confirmed",
+    "employmentType": "To be confirmed",
+    "salary": "To be confirmed",
+    "deadline": "To be confirmed"
+  },
+  {
+    "id": "electrical-technician",
+    "title": "Electrical Technician",
+    "department": "Technical & Field Operations",
+    "summary": "Support safe installation, inspection and maintenance of solar electrical systems.",
+    "responsibilities": [
+      "Assist with cable routing, equipment installation and connections under authorised supervision.",
+      "Support testing, fault reporting and preventive maintenance.",
+      "Follow site safety procedures, use appropriate protective equipment and maintain service records."
+    ],
+    "requirements": [
+      "Relevant electrical trade training or practical electrical experience.",
+      "Ability to follow wiring diagrams and technical instructions.",
+      "Awareness of electrical isolation, site safety and safe tool use."
+    ],
+    "status": "Sample — vacancy not confirmed",
+    "location": "To be confirmed",
+    "employmentType": "To be confirmed",
+    "salary": "To be confirmed",
+    "deadline": "To be confirmed"
+  }
+]
