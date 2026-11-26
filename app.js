@@ -106,7 +106,7 @@ const quoteForm = document.getElementById('quoteForm');
 if (quoteForm) {
   quoteForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (quoteForm.classList.contains('contact-form')) {
+    if (quoteForm.classList.contains('contact-form') || quoteForm.hasAttribute('data-email-enquiry')) {
       const details = new FormData(quoteForm);
       const message = ['Solar enquiry', '', ...Array.from(details, ([key, value]) => `${key}: ${value}`)].join('\n');
       window.location.href = `mailto:solarengineering@yahoo.com?subject=${encodeURIComponent('Solar enquiry — Sunshine Engineering')}&body=${encodeURIComponent(message)}`;

@@ -185,3 +185,26 @@ main > .section.subpage-hero { background: linear-gradient(145deg, #f1f9ff, #d8e
 @media(min-width:1441px) { .site-header nav { gap:clamp(12px,1.3vw,24px); } }
 @media(max-width:800px) { .career-grid { grid-template-columns:1fr; } }
 @media(max-width:380px) { .career-facts { grid-template-columns:1fr; } }
+/* Homepage content additions retain the existing design system. */
+#products .resource p, #resources .resource p, #testimonials .resource p { font-size:14px; line-height:1.75; color:var(--body); }
+#products .resource, #testimonials .resource { padding:28px; }
+#products > .button { margin-top:22px; }
+#impact > p { line-height:1.75; margin-block:22px; }
+#impact .cred-logos span { font-size:13px; line-height:1.8; }
+.process li { break-inside:avoid; align-items:flex-start; }
+.process li div { min-width:0; }.process li strong { display:block; }.process li p { font-size:13px; line-height:1.7; margin:8px 0 0; color:inherit; }
+.home-maintenance { margin-top:28px; padding:22px; border:1px solid var(--line); border-radius:16px; }
+.home-maintenance summary { cursor:pointer; font-weight:700; }.home-maintenance p { line-height:1.75; margin-top:16px; }
+#quote > div a { color:inherit; text-decoration:underline; text-underline-offset:4px; }
+#quote .enquiry-explainer { color:var(--ink); font-size:13px; line-height:1.65; margin-bottom:20px; }
+#quote > div .source-note { color:inherit; font-size:12px; }
+/* Allow longer descriptions without clipping and retain readable section contrast. */
+#solutions .solution-grid { grid-template-rows:repeat(2,minmax(330px,auto)); }
+#solutions .solution-card a { padding-top:18px; }
+main > .process .process-copy, main > .process h2 { color:var(--ink); }
+main > .process .process-copy > p, main > .process li p { color:var(--body); }
+main > .process .eyebrow { color:var(--green); }
+main > .process li { border-color:var(--line); }
+main > .process li b { color:var(--green); }
+#quote > div > p:not(.eyebrow), #quote > div > .eyebrow { color:#e0eaf4; }
+@media(max-width:800px) { #solutions .solution-grid { grid-template-rows:none; grid-auto-rows:auto; } #solutions .solution-card { min-height:330px; } }
