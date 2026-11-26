@@ -208,3 +208,11 @@ main > .process li { border-color:var(--line); }
 main > .process li b { color:var(--green); }
 #quote > div > p:not(.eyebrow), #quote > div > .eyebrow { color:#e0eaf4; }
 @media(max-width:800px) { #solutions .solution-grid { grid-template-rows:none; grid-auto-rows:auto; } #solutions .solution-card { min-height:330px; } }
+/* Impact metrics: individual cards with clear label, value and demo status. */
+#impact .cred-logos { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; margin-block:28px; }
+#impact .cred-logos > span { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:14px; min-width:0; min-height:190px; padding:28px; background:#e1effa; border:1px solid #c4dced; border-radius:20px; color:#102c50; font-size:15px; font-weight:600; line-height:1.4; text-align:left; }
+#impact .cred-logos > span br { display:none; }
+#impact .cred-logos strong { display:block; font:800 clamp(32px,3vw,46px)/1.1 Manrope,sans-serif; color:#073878; letter-spacing:-.03em; }
+#impact .cred-logos small { display:inline-block; padding:5px 10px; border-radius:20px; background:#fff5cf; color:#705300; font-size:11px; font-weight:600; line-height:1.4; }
+@media(max-width:1000px) { #impact .cred-logos { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:480px) { #impact .cred-logos { grid-template-columns:1fr; gap:14px; } #impact .cred-logos > span { min-height:160px; padding:24px; } }
