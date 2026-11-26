@@ -242,3 +242,6 @@ main > .process li b { color:var(--green); }
 .testimonial-motion { margin-top:12px; padding:9px 16px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); font:inherit; font-size:13px; cursor:pointer; }
 @media(max-width:640px) { .testimonial-belt { gap:16px; } .testimonial-belt .customer-story { flex:0 0 min(280px,72vw); } }
 @media(prefers-reduced-motion:reduce) { .testimonial-belt { animation:none; width:100%; flex-wrap:wrap; } .testimonial-belt .customer-story { flex:1 1 260px; } .testimonial-belt [data-story-clone], .testimonial-motion { display:none; } }
+/* Impact cards use the established navy and solar-yellow palette. */
+#impact .cred-logos > span { background:#073878; border-color:#073878; color:#fff; }
+#impact .cred-logos strong { color:#ffd13e; }
