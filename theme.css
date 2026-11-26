@@ -230,3 +230,15 @@ main > .process li b { color:var(--green); }
 .customer-story:nth-child(2) .story-copy h3,.customer-story:nth-child(2) .story-copy p { color:#102c50; }
 @media(max-width:640px) { .customer-story { flex-basis:85%; height:420px; } #testimonials .testimonial-track { gap:16px; } }
 @media(prefers-reduced-motion:reduce) { .customer-story > img { transition:none; } .customer-story:hover > img { transform:none; } }
+/* Consistent testimonial cards with a seamless, gentle marquee. */
+#testimonials .testimonial-track { overflow:hidden; scroll-snap-type:none; scrollbar-width:none; }
+#testimonials .testimonial-track::-webkit-scrollbar { display:none; }
+.customer-story:nth-child(2) .story-copy { padding:70px 24px 24px; background:linear-gradient(transparent,#061f46f5 35%); }
+.customer-story:nth-child(2) .story-copy h3,.customer-story:nth-child(2) .story-copy .story-summary { color:#fff; }
+.customer-story:nth-child(2) .story-copy .story-city { color:#d4e3ef; }
+.testimonial-belt { display:flex; gap:24px; width:max-content; animation:testimonial-drift 45s linear infinite; }
+#testimonials .testimonial-track:hover .testimonial-belt, #testimonials .testimonial-track:focus-within .testimonial-belt, #testimonials .testimonial-track.is-paused .testimonial-belt { animation-play-state:paused; }
+@keyframes testimonial-drift { to { transform:translateX(calc(-1 * var(--testimonial-distance))); } }
+.testimonial-motion { margin-top:12px; padding:9px 16px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); font:inherit; font-size:13px; cursor:pointer; }
+@media(max-width:640px) { .testimonial-belt { gap:16px; } .testimonial-belt .customer-story { flex:0 0 min(280px,72vw); } }
+@media(prefers-reduced-motion:reduce) { .testimonial-belt { animation:none; width:100%; flex-wrap:wrap; } .testimonial-belt .customer-story { flex:1 1 260px; } .testimonial-belt [data-story-clone], .testimonial-motion { display:none; } }

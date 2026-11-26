@@ -137,3 +137,41 @@ if (menuButton && header) {
   matchMedia('(max-width: 1440px)').addEventListener('change', () => setMenu(false));
   document.querySelectorAll('#primary-nav a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 }
+
+// Automatically move customer stories; keep all content available without motion.
+(() => {
+  const track = document.querySelector('.testimonial-track');
+  if (!track) return;
+  const cards = [...track.querySelectorAll('.customer-story')];
+  if (!cards.length) return;
+  const belt = document.createElement('div');
+  belt.className = 'testimonial-belt';
+  cards.forEach(card => belt.append(card));
+  cards.forEach(card => {
+    const copy = card.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.setAttribute('inert', '');
+    copy.dataset.storyClone = '';
+    belt.append(copy);
+  });
+  track.append(belt);
+  track.setAttribute('aria-label', 'Five customer experiences; moving cards pause when focused');
+  const measure = () => {
+    const gap = parseFloat(getComputedStyle(belt).gap) || 0;
+    const distance = cards.reduce((total, card) => total + card.getBoundingClientRect().width + gap, 0);
+    belt.style.setProperty('--testimonial-distance', `${distance}px`);
+  };
+  new ResizeObserver(measure).observe(track);
+  measure();
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'testimonial-motion';
+  button.textContent = 'Pause testimonials';
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => {
+    const paused = track.classList.toggle('is-paused');
+    button.setAttribute('aria-pressed', String(paused));
+    button.textContent = paused ? 'Play testimonials' : 'Pause testimonials';
+  });
+  track.after(button);
+})();
