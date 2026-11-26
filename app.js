@@ -134,6 +134,6 @@ if (menuButton && header) {
     if (event.key === 'Escape' && header.classList.contains('nav-open')) { setMenu(false); menuButton.focus(); }
   });
   header.addEventListener('focusout', event => { if (!header.contains(event.relatedTarget)) setMenu(false); });
-  matchMedia('(max-width: 1280px)').addEventListener('change', () => setMenu(false));
+  matchMedia('(max-width: 1440px)').addEventListener('change', () => setMenu(false));
   document.querySelectorAll('#primary-nav a').forEach(link => link.addEventListener('click', () => setMenu(false)));
 }

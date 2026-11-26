@@ -68,7 +68,7 @@ main > .calculator, main > .quote { background: #15253f; color: #eff6fa; }
 footer { background: #111f35; }
 .floating a, .floating-calculator { background: #173058; }
 .floating .whatsapp { background: #344f79; }
-@media(max-width:1280px) {
+@media(max-width:1440px) {
   body .site-header { margin: 10px 12px 0; top: 8px; padding-inline: 18px; border-radius: 18px; }
   body .site-header.nav-open nav { border-radius: 0 0 18px 18px; background: #f0f7fb; }
   body .site-header .menu { background: #e7f0f5; border: 0; }
@@ -150,3 +150,19 @@ main > .section.subpage-hero { background: linear-gradient(145deg, #f1f9ff, #d8e
 @media(max-width:640px) {
  body .hero::after { background: linear-gradient(180deg, #061f46f2, #062b50c4 65%, #061f4680); }
 }
+
+.news-feature { display:grid; grid-template-columns: minmax(220px,.7fr) minmax(0,1.3fr); margin-top:32px; border:1px solid var(--line); border-radius:24px; overflow:hidden; background:#fff; }
+.news-art { background:#073878; color:#ffd13e; padding:clamp(28px,4vw,60px); display:flex; flex-direction:column; justify-content:space-between; gap:48px; font:800 clamp(30px,4vw,56px)/1.1 Manrope,sans-serif; }
+.news-art-year { font-size:18px; color:#fff; letter-spacing:.2em; }
+.news-copy { padding:clamp(24px,4vw,56px); }
+.news-copy h3 { font-size:clamp(24px,2.5vw,34px); line-height:1.25; margin:18px 0; }
+.news-copy p, .news-enquiries p, .news-related p { color:var(--body); line-height:1.8; }
+.news-meta { font-size:13px; }
+.news-copy .text-link { margin-top:20px; }
+.news-enquiries { display:flex; align-items:center; justify-content:space-between; gap:28px; }
+.news-enquiries p { max-width:650px; }
+.news-enquiries .button { flex-shrink:0; }
+.news-related { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:28px; }
+.news-related .resource { padding:28px; border:1px solid var(--line); }
+.news-sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media(max-width:800px) { .news-feature,.news-related { grid-template-columns:1fr; } .news-art { min-height:220px; } .news-enquiries { flex-direction:column; align-items:flex-start; } }
